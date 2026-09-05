@@ -13,6 +13,10 @@ Rules
 
   ``['statements' => ['break', 'case', 'continue', 'declare', 'default', 'exit', 'goto', 'include', 'include_once', 'phpdoc', 'require', 'require_once', 'return', 'switch', 'throw', 'try', 'yield', 'yield_from']]``
 
+- `braces_position <./../rules/basic/braces_position.rst>`_ with config:
+
+  ``['allow_single_line_anonymous_functions' => true, 'allow_single_line_empty_anonymous_classes' => true, 'allow_single_line_empty_functions' => true]``
+
 - `combine_consecutive_issets <./../rules/language_construct/combine_consecutive_issets.rst>`_
 - `combine_consecutive_unsets <./../rules/language_construct/combine_consecutive_unsets.rst>`_
 - `empty_loop_body <./../rules/control_structure/empty_loop_body.rst>`_

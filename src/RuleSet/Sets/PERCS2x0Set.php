@@ -39,6 +39,11 @@ final class PERCS2x0Set extends AbstractRuleSetDefinition
             'array_indentation' => true,
             'array_syntax' => true,
             'attribute_block_no_spaces' => true,
+            'braces_position' => [ // overrides @PSR12, whose options are restated because rule sets replace the whole configuration
+                'allow_single_line_anonymous_functions' => false,
+                'allow_single_line_empty_anonymous_classes' => true,
+                'allow_single_line_empty_functions' => true,
+            ],
             'cast_spaces' => true,
             'concat_space' => ['spacing' => 'one'],
             'function_declaration' => [

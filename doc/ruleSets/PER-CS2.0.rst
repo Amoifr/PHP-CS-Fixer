@@ -19,6 +19,10 @@ Rules
 - `array_indentation <./../rules/whitespace/array_indentation.rst>`_
 - `array_syntax <./../rules/array_notation/array_syntax.rst>`_
 - `attribute_block_no_spaces <./../rules/attribute_notation/attribute_block_no_spaces.rst>`_
+- `braces_position <./../rules/basic/braces_position.rst>`_ with config:
+
+  ``['allow_single_line_anonymous_functions' => false, 'allow_single_line_empty_anonymous_classes' => true, 'allow_single_line_empty_functions' => true]``
+
 - `cast_spaces <./../rules/cast_notation/cast_spaces.rst>`_
 - `concat_space <./../rules/operator/concat_space.rst>`_ with config:
 

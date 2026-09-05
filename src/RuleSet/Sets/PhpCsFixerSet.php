@@ -50,6 +50,11 @@ final class PhpCsFixerSet extends AbstractRuleSetDefinition
                     'yield_from',
                 ],
             ],
+            'braces_position' => [ // overrides @Symfony, whose options are restated because rule sets replace the whole configuration
+                'allow_single_line_anonymous_functions' => true,
+                'allow_single_line_empty_anonymous_classes' => true,
+                'allow_single_line_empty_functions' => true,
+            ],
             'combine_consecutive_issets' => true,
             'combine_consecutive_unsets' => true,
             'empty_loop_body' => true,
