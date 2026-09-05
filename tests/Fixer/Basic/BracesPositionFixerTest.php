@@ -848,6 +848,81 @@ final class BracesPositionFixerTest extends AbstractFixerTestCase
                 PHP,
             ['control_structures_opening_brace' => 'same_line'],
         ];
+
+        yield 'empty function body (default)' => [
+            <<<'PHP'
+                <?php
+                function foo()
+                {
+                }
+                PHP,
+            <<<'PHP'
+                <?php
+                function foo() {}
+                PHP,
+        ];
+
+        yield 'empty function body (allow single line empty functions)' => [
+            <<<'PHP'
+                <?php
+                function foo() {}
+                PHP,
+            null,
+            ['allow_single_line_empty_functions' => true],
+        ];
+
+        yield 'empty method body with multiline signature (allow single line empty functions)' => [
+            <<<'PHP'
+                <?php
+                class Foo
+                {
+                    public function bar(
+                        $baz
+                    ) {}
+                }
+                PHP,
+            null,
+            ['allow_single_line_empty_functions' => true],
+        ];
+
+        yield 'expanded empty function body is left as is (allow single line empty functions)' => [
+            <<<'PHP'
+                <?php
+                function foo()
+                {
+                }
+                PHP,
+            null,
+            ['allow_single_line_empty_functions' => true],
+        ];
+
+        yield 'non-empty single line function body is still expanded (allow single line empty functions)' => [
+            <<<'PHP'
+                <?php
+                function foo()
+                {
+                return 1;
+                }
+                PHP,
+            <<<'PHP'
+                <?php
+                function foo() { return 1; }
+                PHP,
+            ['allow_single_line_empty_functions' => true],
+        ];
+
+        yield 'anonymous function is not covered by allow single line empty functions' => [
+            <<<'PHP'
+                <?php
+                $foo = function () {
+                };
+                PHP,
+            <<<'PHP'
+                <?php
+                $foo = function () {};
+                PHP,
+            ['allow_single_line_empty_functions' => true, 'allow_single_line_anonymous_functions' => false],
+        ];
     }
 
     /**

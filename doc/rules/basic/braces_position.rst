@@ -13,9 +13,9 @@ This rule is CONFIGURABLE
 You can configure this rule using the following options:
 ``allow_single_line_anonymous_functions``,
 ``allow_single_line_empty_anonymous_classes``,
-``anonymous_classes_opening_brace``, ``anonymous_functions_opening_brace``,
-``classes_opening_brace``, ``control_structures_opening_brace``,
-``functions_opening_brace``.
+``allow_single_line_empty_functions``, ``anonymous_classes_opening_brace``,
+``anonymous_functions_opening_brace``, ``classes_opening_brace``,
+``control_structures_opening_brace``, ``functions_opening_brace``.
 
 Configuration
 -------------
@@ -39,6 +39,16 @@ Allow anonymous classes to have opening and closing braces on the same line.
 Allowed types: ``bool``
 
 Default value: ``true``
+
+``allow_single_line_empty_functions``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Allow functions and methods with an empty body to have opening and closing
+braces on the same line.
+
+Allowed types: ``bool``
+
+Default value: ``false``
 
 ``anonymous_classes_opening_brace``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -233,6 +243,27 @@ With configuration: ``['allow_single_line_anonymous_functions' => true]``.
    +$result = true;
    +    return $result;
    +};
+
+Example #9
+~~~~~~~~~~
+
+With configuration: ``['allow_single_line_empty_functions' => true]``.
+
+.. code-block:: diff
+
+   --- Original
+   +++ New
+    <?php
+    class Foo
+    {
+        public function bar() {}
+
+   -    public function baz() { return 1; }
+   +    public function baz()
+   +    {
+   +    return 1;
+   +    }
+    }
 
 Rule sets
 ---------
